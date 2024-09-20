@@ -140,21 +140,42 @@
       </div>
       <div id= "digital-contact-section">
         <div class="footer-container">
-          <h1>
-            Your Next Step Starts Here
-          </h1>
-          <p>
-            schedule a call
-          </p>
-          <p>
-            email us at digital@kuwonastudios.com
-          </p>
+          <div class="contact-sub">
+            <h1>
+              Your Next Step Starts Here
+            </h1>
+            <div class="booking-btn">
+              <!-- Google Calendar Appointment Scheduling begin -->
+              <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+              <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+              <script>
+              (function() {
+                var target = document.currentScript;
+                window.addEventListener('load', function() {
+                  calendar.schedulingButton.load({
+                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2gabqz3dQdPfOTYnzm7WfCcjkZ3F9lhDRASofeLwOQ9VmN3C7gXTOCxin9TpewD65yDsSYLg7B?gv=true',
+                    color: '#039BE5',
+                    label: "Schedule a Free Discovery Call",
+                    target,
+                  });
+                });
+              })();
+              </script>
+              <!-- end Google Calendar Appointment Scheduling -->
+            </div>
+            <h3>
+              ENQUIRIES
+            </h3>
+            <p>
+            info@kuwonastudios.com
+            </p>
+          </div>
           <div class="digital-footer">
             <p>
-              kuwona digital © 2024
+              CAPE TOWN, SOUTH AFRICA
             </p>
             <p>
-              Cape Town, South africa
+              KUWONA DIGITAL © 2024
             </p>
         </div>
         </div>

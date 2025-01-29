@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* STYLE GUIDE */
 /** FONTS **/
 /* Headings */
@@ -83,7 +87,7 @@ h5 {
 
 /** Small screens, laptops **/
 @media (min-width: 769px) and (max-width: 1919px) {
-  #section-hero h1 {
+  .section-hero h1 {
     padding-top: 100px;
   }
 
@@ -110,7 +114,7 @@ h5 {
 
 /** Extra large screens, TVs **/
 @media (min-width: 1920px) {
-  #section-hero h1 {
+  .section-hero h1 {
     font-size: 80px;
     padding-top: 120px;
   }
@@ -180,7 +184,7 @@ body {
 }
 
 /* Hero Section Background */
-#section-hero {
+.section-hero {
   background: radial-gradient(circle at 20% 30%, var(--accent-color) 15%, transparent 40%),
             radial-gradient(circle at 80% 30%, #0DABEF 15%, transparent 30%),
             radial-gradient(circle at 50% 70%, #2D677B 15%, transparent 30%),
@@ -200,7 +204,7 @@ body {
 }
 
 /* Content Inside Hero Section */
-#section-hero .content {
+.section-hero .content {
   position: relative;
   z-index: 1;
   padding: 25px;
@@ -244,6 +248,7 @@ body {
   border-radius: 12px;
   padding: 8px 12px;
   width: 30%;
+  display: none !important;
 }
 
 .nav-text-marquee {
@@ -306,7 +311,7 @@ body {
   width: 100%; /* Full width for wrapper */
 }
 
-#section-hero {
+.section-hero {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -316,13 +321,16 @@ body {
 }
 
 
-#digital-services-section {
+.digital-services-section {
   height: 100vh;
   position: relative;
-  margin: 25px;
+  padding: 25px;
+  background: linear-gradient(hsl(242 88% 45% / 0), rgb(250 100 181 / 0.15) 2px, transparent 2px, transparent 4px);
+  background-size: 100% 4px;
+  animation: pan-overlay 22s infinite linear;
 }
 
-#digital-services-section h1 {
+.digital-services-section h1 {
   margin: 0;
 }
 
@@ -330,13 +338,13 @@ body {
   color: var(--accent-color);
 }
 
-#digital-services-section .digital-divider {
+.digital-services-section .digital-divider {
   position: absolute;
   bottom: 0;
   margin: 0;
 }
 
-#digital-featured-work-section {
+.digital-featured-work-section {
   /* width: 50%;
   margin: 0 auto; */
 }
@@ -387,7 +395,7 @@ body {
   border-radius: 20px;
 }
 
-#digital-contact-section {
+.digital-contact-section {
     position: sticky;
     bottom: 0;
     left: 0;
@@ -411,7 +419,7 @@ body {
   font-size: 12px;
 }
 
-#digital-contact-section h3, p {
+.digital-contact-section h3, p {
   font-family:  "JetBrains Mono", monospace;
   font-size: 14px;
 }
@@ -474,7 +482,8 @@ body {
 
 
 .services-list li {
-  background-color: hsla(0,0%,73%,.3);
+  background-color: var(--text-color);
+  /* #f2fbfbde */
   backdrop-filter: blur(25px);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

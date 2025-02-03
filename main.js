@@ -17,17 +17,17 @@ const features = [
   {
       title: "Web Design & Development",
       description: "specific purpose:p teams focus on what they do best: Planning, building, and shipping great products.",
-      imagePath: "assets/images/web-design-development.png"
+      imagePath: "assets/images/web-development-white-glossy.png"
   },
   {
-      title: "Designed to move fast",
+      title: "Growth & Visibility Marketing",
       description: "Speed is at the core of our platform. We've optimized every aspect to ensure your team can work efficiently and effectively, without any unnecessary delays or complications.",
-      imagePath: "/api/placeholder/400/320"
+      imagePath: "assets/images/growth-and-visibility-marketing-white-glossy.png"
   },
   {
-      title: "Crafted to perfection",
+      title: "Digital Automation Solutions",
       description: "Every detail has been carefully considered and refined to create a seamless experience. Our platform combines powerful functionality with intuitive design.",
-      imagePath: "/api/placeholder/400/320"
+      imagePath: "assets/images/automation-solutions-white-glossy.png"
   }
 ];
 
@@ -171,6 +171,17 @@ function updatePaginationDots() {
   });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+  const prevBtn = document.getElementById('prev');
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + services.length) % services.length;
+      renderService(currentIndex);
+    });
+  }
+});
+
+
 prevBtn.addEventListener('click', () => {
   currentIndex = (currentIndex - 1 + services.length) % services.length;
   renderService(currentIndex);
@@ -183,3 +194,59 @@ nextBtn.addEventListener('click', () => {
 
 // Initial render
 renderService(currentIndex);
+
+/* PROJECT SLIDER */
+let carouselIndex = 1;
+const items = document.querySelectorAll('.carousel .list .item');
+const totalItems = items.length;
+
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const backButton = document.getElementById('back');
+
+// Function to move the carousel forward
+function moveToNext() {
+    carouselIndex++;
+    if (carouselIndex > totalItems) {
+        carouselIndex = 1;
+    }
+    updateCarousel();
+}
+
+// Function to move the carousel backward
+function moveToPrev() {
+    carouselIndex--;
+    if (carouselIndex < 1) {
+        carouselIndex = totalItems;
+    }
+    updateCarousel();
+}
+
+// Function to update the carousel based on the current index
+function updateCarousel() {
+    // Reset the carousel
+    items.forEach((item, index) => {
+        item.classList.remove('next', 'prev');
+        item.style.transform = '';  // Reset the transform
+        item.style.filter = '';  // Reset the filter
+        item.style.opacity = '';  // Reset the opacity
+    });
+
+    // Calculate next and prev items based on the current index
+    const nextIndex = (carouselIndex % totalItems) + 1;
+    const prevIndex = (carouselIndex - 2 + totalItems) % totalItems + 1;
+
+    // Add the necessary class for the current index
+    items[carouselIndex - 1].classList.add('back');
+    items[nextIndex - 1].classList.add('next');
+    items[prevIndex - 1].classList.add('prev');
+}
+
+// Event listeners for the navigation buttons
+nextButton.addEventListener('click', moveToNext);
+prevButton.addEventListener('click', moveToPrev);
+
+// Optionally, handle the "See All" button if needed
+backButton.addEventListener('click', () => {
+    // Implement a behavior for "See All" button if necessary
+});

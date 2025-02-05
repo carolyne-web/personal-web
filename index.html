@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://use.typekit.net/wmi0wxx.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,16 +72,37 @@
         <div class="container" id="cardContainer">
         </div>
       </div>
-      <!--PROJECT SLIDER CODE-->
-      <div class="portfolio-slider" id="portfolioSlider">
-        <!-- <div class="portfolio-loading-overlay" id="portfolioLoadingOverlay">
-            <div class="portfolio-loading-spinner"></div>
-            <span>Loading video...</span>
-        </div> -->
-
-        <div class="portfolio-navigation" id="portfolioNav"></div>
+        <div class="selected-work-section">
+          <h1>Selected Work</h1>
+          <div class="video-grid">
+              <!-- PROJECT GALLERY -->
+              <div class="video-container">
+                  <video class="video-thumb" src="/assets/images/Untitled.mp4" muted loop></video>
+                  <div class="video-text">Carbon Wizard</div>
+              </div>
+              <div class="video-container">
+                  <video class="video-thumb" src="/assets/images/project-sanic-video.mp4" muted loop></video>
+                  <div class="video-text">Cabal Bikes</div>
+              </div>
+              <div class="video-container">
+                  <video class="video-thumb" src="/assets/images/project-sanic-video.mp4" muted loop></video>
+                  <div class="video-text">Sanic Clean</div>
+              </div>
+          </div>
+      </div>
+    <!-- Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <video id="modalVideo" controls autoplay></video>
+            <div class="modal-text">
+                <h2>Video Title</h2>
+                <p>Here is some text that appears below the expanded video. You can scroll to see more.</p>
+            </div>
+        </div>
     </div>
-      <!-- END PROJECT SLIDER CODE-->
+
+      <!-- END PROJECT GALLERY-->
         <div class="services-list-container">
           <ul class="services-list">
             <li>
@@ -190,5 +212,27 @@
     </div>
     <script src="main.js"></script>
     <script src="portfolio-slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          new Swiper(".video-slider", {
+              slidesPerView: 1,
+              spaceBetween: 20,
+              navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+              },
+              breakpoints: {
+                  768: {
+                      slidesPerView: 2,
+                  },
+                  1024: {
+                      slidesPerView: 3,
+                  }
+              }
+          });
+      });
+  </script>
+
   </body>
 </html>

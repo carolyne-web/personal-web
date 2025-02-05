@@ -378,11 +378,12 @@ body {
 .qxCTlb {
   font-family: 'JetBrains Mono' !important;
   text-transform: uppercase;
-  font-weight: 300 !important;
+  font-weight: 500 !important;
   border-radius: 12px;
   background-color: var(--primary-bg-color) !important;
   opacity: 0.6;
   margin-bottom: 50px;
+  font-size: 0.9rem;
 }
 
 .qxCTlb:hover {
@@ -428,7 +429,7 @@ body {
 
 .digital-contact-section h3, p {
   font-family:  "JetBrains Mono", monospace;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
 .digital-insights-sub {
@@ -544,6 +545,8 @@ body {
   background-color: var(--primary-bg-color);
   z-index: 1;
   position: relative;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .client-list img {
@@ -784,7 +787,7 @@ body {
         }
 
         .expanded-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
         }
@@ -792,8 +795,8 @@ body {
         .expanded-description {
             margin: 0 auto;
             padding: 4rem 2rem;
-            width: 40vw;
-            background-color: #333;
+            width: 35vw;
+            /* background-color: #333; */
             border-radius: 12px;
         }
 
@@ -804,9 +807,10 @@ body {
         }
 
         .expanded-description p {
-            color: rgb(156, 163, 175);
+            /* color: rgb(156, 163, 175); */
             font-size: 1.125rem;
             line-height: 1.75;
+            color:rgb(39, 39, 42);
         }
 
         /* Image styles */
@@ -822,3 +826,28 @@ body {
             inset: 0;
             /* background: linear-gradient(to top right, rgb(24, 24, 27), transparent); */
         }
+        .logo-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+          gap: 0.5rem; /* Space between logos */
+          justify-items: center; /* Center logos horizontally */
+          border: 1px solid #2d677b8a;
+          border-radius: 1rem;
+      }
+
+      .logo {
+          width: 100%;
+          max-width: 150px; /* Limit the size of logos */
+          height: auto;
+          object-fit: contain; /* Ensure logos maintain aspect ratio */
+      }
+
+      /* Mobile devices: stack logos in 1 column */
+      @media (max-width: 768px) {
+          .logo-grid {
+              grid-template-columns: 1fr; /* 1 column on mobile */
+          }
+      }
+      .selected-work-section {
+        padding: 2.5rem;
+      }

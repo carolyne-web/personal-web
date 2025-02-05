@@ -829,10 +829,10 @@ body {
         .logo-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
-          gap: 0.5rem; /* Space between logos */
+          gap: 0rem; /* Space between logos */
           justify-items: center; /* Center logos horizontally */
-          border: 1px solid #2d677b8a;
-          border-radius: 1rem;
+          width: 80%;
+          margin: 0 auto;
       }
 
       .logo {
@@ -850,4 +850,8 @@ body {
       }
       .selected-work-section {
         padding: 2.5rem;
+      }
+
+      .Xfsokf {
+
       }

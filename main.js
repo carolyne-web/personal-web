@@ -65,24 +65,19 @@ function createCard(feature, index) {
               ${createPlusIcon()}
           </button>
       </div>
+      <div class="expanded-container">
       <div class="expanded">
           <div class="expanded-banner">
               <button class="close-button" aria-label="Close">
                   ${createCloseIcon()}
               </button>
-              <div class="expanded-icon">
-                  <div class="expanded-icon-wrapper">
-                      <img src="${feature.imagePath}" alt="${feature.title}" class="expanded-image">
-                      <div class="image-gradient"></div>
-                  </div>
-              </div>
-              <div class="expanded-content">
-                  <h2 class="expanded-title">${feature.title}</h2>
-              </div>
           </div>
           <div class="expanded-description">
+
+          <h2 class="expanded-title">${feature.title}</h2>
               <p>${feature.description}</p>
           </div>
+      </div>
       </div>
   `;
 
@@ -109,89 +104,3 @@ const container = document.getElementById('cardContainer');
 features.forEach((feature, index) => {
   container.appendChild(createCard(feature, index));
 });
-
-const services = [
-  {
-      category: "Web Design & Development",
-      description: "We designed a cutting-edge responsive website with modern UI/UX principles.",
-      company: "TechInnovate Solutions",
-      image: "assets/images/cabal-bikes-project-img.jpg",
-      websiteUrl: "https://techinnovate.com",
-      date: "January 2024"
-  },
-  {
-      category: "Mobile App Development",
-      description: "Created a cross-platform mobile application with seamless user experience.",
-      company: "Digital Frontier",
-      image: "https://via.placeholder.com/600x400",
-      websiteUrl: "https://digitalfrontier.io",
-      date: "March 2024"
-  }
-];
-
-let currentIndex = 0;
-
-// DOM Elements
-const categoryBubble = document.getElementById('category-bubble');
-const categoryTitle = document.getElementById('category-title');
-const categoryDescription = document.getElementById('category-description');
-const projectDate = document.getElementById('project-date');
-const serviceImage = document.getElementById('service-image');
-const companyName = document.getElementById('company-name');
-const websiteLink = document.getElementById('website-link');
-const paginationDots = document.getElementById('pagination-dots');
-const prevBtn = document.getElementById('prev-btn');
-const nextBtn = document.getElementById('next-btn');
-
-function renderService(index) {
-  const service = services[index];
-
-  categoryBubble.textContent = service.category;
-  categoryTitle.textContent = service.category;
-  categoryDescription.textContent = service.description;
-  projectDate.textContent = `Project Date: ${service.date}`;
-  serviceImage.src = service.image;
-  companyName.textContent = service.company;
-  websiteLink.href = service.websiteUrl;
-
-  updatePaginationDots();
-}
-
-function updatePaginationDots() {
-  paginationDots.innerHTML = '';
-  services.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === currentIndex) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-          currentIndex = index;
-          renderService(currentIndex);
-      });
-      paginationDots.appendChild(dot);
-  });
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-  const prevBtn = document.getElementById('prev');
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + services.length) % services.length;
-      renderService(currentIndex);
-    });
-  }
-});
-
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + services.length) % services.length;
-  renderService(currentIndex);
-});
-
-nextBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % services.length;
-  renderService(currentIndex);
-});
-
-// Initial render
-renderService(currentIndex);
-

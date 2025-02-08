@@ -888,6 +888,7 @@ body {
             inset: 0;
             /* background: linear-gradient(to top right, rgb(24, 24, 27), transparent); */
         }
+
         .logo-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
@@ -909,6 +910,7 @@ body {
         .logo-grid {
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
+            width: 100%;
         }
       }
 

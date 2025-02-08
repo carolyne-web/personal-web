@@ -15,7 +15,7 @@ gone are the days when having a website was just a nice-to-have. you need a digi
 <span class="expanded-service-item">website design & development</span>
 <span class="expanded-service-item">e-commerce solutions</span>
 <span class="expanded-service-item">ui/ux design</span>
-<span class="expanded-service-item">digital product & app design & development</span>
+<span class="expanded-service-item">digital product / app </span>
 <span class="expanded-service-item">website maintenance & support</span>`,
     imagePath: "assets/images/web-development-white-glossy.png"
   },

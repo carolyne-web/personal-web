@@ -247,9 +247,9 @@ body {
 }
 
 .nav-text-area {
-  overflow: hidden; /* Hide the overflow for the marquee effect */
-  white-space: nowrap; /* Prevent text wrapping */
-  position: relative; /* Required for positioning the inner content */
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
   text-align: center;
   border-radius: 12px;
   padding: 8px 12px;
@@ -257,13 +257,6 @@ body {
   display: none !important;
 }
 
-.nav-text-marquee {
-  text-transform: uppercase;
-  opacity: 0.8;
-  display: inline-block;
-  white-space: nowrap; /* Prevent text wrapping */
-  animation: marquee 20s linear infinite;
-}
 
 @keyframes marquee {
   0% {
@@ -613,7 +606,7 @@ body {
 
 @media (max-width: 768px) {
   .digital-sticky-nav-wrapper {
-    padding: 2rem;
+    width: 80% !important;
   }
 }
 
@@ -669,10 +662,10 @@ body {
 /* desktop */
 .digital-navigation {
   display: flex;
-  align-items: center; /* Center items vertically */
-  justify-content: center; /* Center the content horizontally */
-  color: var(--text-color); /* Set your text color */
-  position: relative; /* Needed for absolute positioning of the logo */
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  position: relative;
 }
 
 #digital-logo {

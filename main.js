@@ -1,32 +1,55 @@
-document.querySelectorAll('a[href="#contact"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-
-      const target = document.querySelector('#contact');
-      const offset = target.offsetTop; // Get the top offset of the target element
-      const scrollOffset = 100; // Adjust this value based on your layout
-
-      window.scrollTo({
-          top: offset - scrollOffset, // Subtract the offset to position the section correctly
-          behavior: 'smooth' // Smooth scrolling effect
-      });
+document.querySelector('a[href="#contact"]').addEventListener('click', function (e) {
+  e.preventDefault(); // Prevent default anchor behavior
+  window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth' // Smooth scrolling
   });
 });
 
+
 const features = [
   {
-      title: "Web Design & Development",
-      description: "specific purpose:p teams focus on what they do best: Planning, building, and shipping great products.",
-      imagePath: "assets/images/web-development-white-glossy.png"
+    title: "Design & Development",
+    description: `"send me your location"<br>
+gone are the days when having a website was just a nice-to-have. you need a digital "location" to reach a broader audience and stay competitive. in this digital age, if you're not online—do you even exist?<br><br>
+<span class="expanded-service-item">website design & development</span>
+<span class="expanded-service-item">e-commerce solutions</span>
+<span class="expanded-service-item">ui/ux design</span>
+<span class="expanded-service-item">digital product & app design & development</span>
+<span class="expanded-service-item">website maintenance & support</span>`,
+    imagePath: "assets/images/web-development-white-glossy.png"
   },
   {
-      title: "Growth & Visibility Marketing",
-      description: "Speed is at the core of our platform. We've optimized every aspect to ensure your team can work efficiently and effectively, without any unnecessary delays or complications.",
+    title: "Growth & Visibility Marketing",
+    description: `"loyalty, not traffic"<br>
+    to reach a wider audience in this vast and dynamic digital world, a one-size-fits-all approach doesn’t work.
+    we combine data-driven insights with creative, human-centered approaches,
+    tailored to your unique needs. at the core of our strategy is community— through authentic communication
+    that connects with your audiences and nurtures lasting loyalty.<br><br>
+<span class="expanded-service-item">Search Engine Optimization (SEO)</span>
+<span class="expanded-service-item">SEO Audits & Strategy</span>
+<span class="expanded-service-item">Pay Per Click (PPC)</span>
+<span class="expanded-service-item">Google Ads</span>
+<span class="expanded-service-item">Google Shopping Ads</span>
+<span class="expanded-service-item">Meta Ads (Facebook/Instagram)</span>
+<span class="expanded-service-item">Affiliate Marketing</span>
+<span class="expanded-service-item">Email Marketing</span>
+<span class="expanded-service-item">Copywriting & Brand Messaging</span>`,
       imagePath: "assets/images/growth-and-visibility-marketing-white-glossy.png"
   },
   {
       title: "Digital Automation Solutions",
-      description: "Every detail has been carefully considered and refined to create a seamless experience. Our platform combines powerful functionality with intuitive design.",
+      description: `"this is an intervention"<br>
+you can't afford to waste any more time on tasks and processes that can be done with the push of a button.
+we take the time to understand your business, offering strategic solutions and innovations that drive efficiency.
+the choice is yours — keep up, get ahead, or get eaten alive if you don't automate.<br><br>
+<span class="expanded-service-item">workflow automation</span>
+<span class="expanded-service-item">crm & email marketing integrations</span>
+<span class="expanded-service-item">AI-powered tools</span>
+<span class="expanded-service-item">custom api development & integrations</span>
+<span class="expanded-service-item">chatbots & customer service automation</span>
+<span class="expanded-service-item">business intelligence & reporting</span>
+<span class="expanded-service-item">inventory & supply chain automation</span>`,
       imagePath: "assets/images/automation-solutions-white-glossy.png"
   }
 ];
@@ -66,18 +89,17 @@ function createCard(feature, index) {
           </button>
       </div>
       <div class="expanded-container">
-      <div class="expanded">
-          <div class="expanded-banner">
-              <button class="close-button" aria-label="Close">
-                  ${createCloseIcon()}
-              </button>
+          <div class="expanded">
+              <div class="expanded-banner">
+                  <button class="close-button" aria-label="Close">
+                      ${createCloseIcon()}
+                  </button>
+              </div>
+              <div class="expanded-description">
+                  <h2 class="expanded-title">${feature.title}</h2>
+                  <p>${feature.description}</p>
+              </div>
           </div>
-          <div class="expanded-description">
-
-          <h2 class="expanded-title">${feature.title}</h2>
-              <p>${feature.description}</p>
-          </div>
-      </div>
       </div>
   `;
 
@@ -85,19 +107,23 @@ function createCard(feature, index) {
   const expandButton = card.querySelector('.expand-button');
   const closeButton = card.querySelector('.close-button');
   const expandedView = card.querySelector('.expanded');
+  const stickyNavWrapper = document.querySelector('.digital-sticky-nav-wrapper'); // Grab the sticky nav element
 
   expandButton.addEventListener('click', () => {
       expandedView.classList.add('active');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';  // Disable body scroll
+      stickyNavWrapper.style.display = 'none'; // Hide sticky nav
   });
 
   closeButton.addEventListener('click', () => {
       expandedView.classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.style.overflow = '';  // Re-enable body scroll
+      stickyNavWrapper.style.display = 'block'; // Show sticky nav
   });
 
   return card;
 }
+
 
 // Initialize cards
 const container = document.getElementById('cardContainer');

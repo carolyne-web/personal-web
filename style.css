@@ -965,3 +965,8 @@ body {
         text-decoration: none !important;
         color: var(--text-color) !important;
       }
+
+.booking-btn {
+  margin-top: 7vh;
+}
+

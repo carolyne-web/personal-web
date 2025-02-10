@@ -943,13 +943,14 @@ body {
       color: var(--text-color) !important;
       top: 0.5rem !important;
       right: 0.5rem !important;
+      z-index: 200000 !important;
 }
 .L0Dvsd {
-  color: var(--text-color) !important;
+  color: black !important;
 }
 
 .uE25ec {
-  color: #F2FBFB I !important;
+  color: black !important;
   font-family: "lores-12", sans-serif !important;
   text-transform: uppercase !important;
 }
@@ -957,7 +958,7 @@ body {
         background-color: hsl(240deg 7% 97% / 35%) !important;
         backdrop-filter: blur(20px) !important;
         -webkit-backdrop-filter: blur(20px) !important;
-        padding: 2.5rem !important;
+        padding: 0 !important;
       }
 
       .footer-email a {

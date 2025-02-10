@@ -118,7 +118,7 @@ function createCard(feature, index) {
   closeButton.addEventListener('click', () => {
       expandedView.classList.remove('active');
       document.body.style.overflow = '';  // Re-enable body scroll
-      stickyNavWrapper.style.display = 'block'; // Show sticky nav
+      stickyNavWrapper.style.display = 'flex'; // Show sticky nav
   });
 
   return card;

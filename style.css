@@ -207,6 +207,7 @@ body {
   overflow: hidden;
   z-index: -1;
   padding-top: env(safe-area-inset-top);
+  background-attachment: fixed;
 }
 
 /* Content Inside Hero Section */

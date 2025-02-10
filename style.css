@@ -595,7 +595,7 @@ body {
 /** sticky **/
 
 .digital-sticky-nav-wrapper {
-  position: absolute;
+  position: fixed;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);

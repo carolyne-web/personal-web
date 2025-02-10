@@ -35,6 +35,20 @@ h5 {
   font-weight: 400;
   font-style: normal;
 }
+
+#partners-sub-header {
+  text-align: center;
+  margin: 0 auto;
+  width: 60%;
+}
+
+
+@media (max-width: 768px) {
+  #partners-sub-header {
+    width: 100%;
+  }
+}
+
 /* Heading Sizes */
 /** Mobile devices **/
 @media (max-width: 480px) {
@@ -815,13 +829,14 @@ body {
         }
 
         .close-button:hover {
-            background-color: rgb(39, 39, 42);
+            color: var(--text-color);
+            opacity: 0.8;
         }
 
         .close-button svg {
             width: 1.5rem;
             height: 1.5rem;
-            color: white;
+            color: var(--text-color);
         }
 
         .expanded-icon {
@@ -922,7 +937,22 @@ body {
 
 
       .Xfsokf {
+      background: transparent !important;
+      color: var(--text-color) !important;
+}
+.L0Dvsd {
+  color: var(--text-color) !important;
+}
 
+.uE25ec {
+  color: #F2FBFB I !important;
+  font-family: "lores-12", sans-serif !important;
+  text-transform: uppercase !important;
+}
+      .hur54b {
+        background-color: hsl(240deg 7% 97% / 35%) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
       }
 
       .footer-email a {

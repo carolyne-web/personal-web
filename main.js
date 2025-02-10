@@ -46,7 +46,7 @@ the choice is yours — keep up, get ahead, or get eaten alive if you don't auto
 <span class="expanded-service-item">workflow automation</span>
 <span class="expanded-service-item">crm & email marketing integrations</span>
 <span class="expanded-service-item">AI-powered tools</span>
-<span class="expanded-service-item">custom api development & integrations</span>
+<span class="expanded-service-item">custom API development</span>
 <span class="expanded-service-item">chatbots & customer service automation</span>
 <span class="expanded-service-item">business intelligence & reporting</span>
 <span class="expanded-service-item">inventory & supply chain automation</span>`,

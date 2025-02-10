@@ -45,6 +45,8 @@ h5 {
 
 @media (max-width: 768px) {
   #partners-sub-header {
+    text-align: center;
+    margin: 0 auto;
     width: 100%;
   }
 }
@@ -939,6 +941,8 @@ body {
       .Xfsokf {
       background: transparent !important;
       color: var(--text-color) !important;
+      top: 0.5rem !important;
+      right: 0.5rem !important;
 }
 .L0Dvsd {
   color: var(--text-color) !important;
@@ -953,6 +957,7 @@ body {
         background-color: hsl(240deg 7% 97% / 35%) !important;
         backdrop-filter: blur(20px) !important;
         -webkit-backdrop-filter: blur(20px) !important;
+        padding: 2.5rem !important;
       }
 
       .footer-email a {

@@ -607,7 +607,7 @@ body {
 
 @media (max-width: 768px) {
   .digital-sticky-nav-wrapper {
-    width: 90% !important;
+    width: 85% !important;
   }
 }
 
@@ -636,7 +636,7 @@ body {
 
 @media (max-width: 768px) {
   .sticky-bottom-nav-links {
-    gap: 5px;
+    gap: 0px;
   }
 }
 

@@ -206,6 +206,7 @@ body {
   height: 100vh;
   overflow: hidden;
   z-index: -1;
+  padding-top: env(safe-area-inset-top);
 }
 
 /* Content Inside Hero Section */
@@ -594,7 +595,7 @@ body {
 /** sticky **/
 
 .digital-sticky-nav-wrapper {
-  position: fixed;
+  position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
@@ -606,7 +607,7 @@ body {
 
 @media (max-width: 768px) {
   .digital-sticky-nav-wrapper {
-    width: 80% !important;
+    width: 90% !important;
   }
 }
 
@@ -635,7 +636,7 @@ body {
 
 @media (max-width: 768px) {
   .sticky-bottom-nav-links {
-    gap: 15px;
+    gap: 5px;
   }
 }
 

@@ -393,7 +393,7 @@ body {
   z-index: 1;
 }
 
-.qxCTlb {
+/* .qxCTlb {
   font-family: "lores-12", sans-serif !important;
   text-transform: uppercase;
   font-weight: 500 !important;
@@ -434,9 +434,51 @@ body {
     transform: scale(1);
     opacity: 1;
   }
+} */
+
+.qxCTlb {
+  font-family: "lores-12", sans-serif !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  border-radius: 12px;
+  background-color: var(--primary-bg-color) !important;
+  opacity: 0.6;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
 }
 
+.qxCTlb:hover {
+  background-color: var(--text-color) !important;
+  color: var(--accent-color) !important;
+  opacity: 1;
+}
 
+/* Container for the dot to properly position the pulse */
+.qxCTlb::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3cf47f;
+  margin-right: 0.5rem;
+  box-shadow: 0 0 0 0 rgba(60, 244, 127, 0.7);
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes pulse-dot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(60, 244, 127, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(60, 244, 127, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(60, 244, 127, 0);
+  }
+}
 
 .insights-container {
   width: 100%;

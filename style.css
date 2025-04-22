@@ -12,10 +12,11 @@ h3,
 h4,
 h5 {
     color: #F2FBFB;
-    font-family: 'public sans', sans-serif;
+    font-family: "Space Grotesk", sans-serif;
     font-weight: 200;
     font-style: normal;
 }
+
 
 .hero-header {
   opacity: 0.6;
@@ -26,20 +27,29 @@ h5 {
   opacity: 0.7;
 }
 
+.sub-header {
+  font-family: "Sora", sans-serif;
+}
+
 .emph {
   opacity: 1;
 }
 
-#digital-logo {
-  font-family: "lores-12", sans-serif;
+.bold-sub-text {
   font-weight: 400;
+}
+
+#digital-logo {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
   font-style: normal;
 }
 
 #partners-sub-header {
   text-align: center;
   margin: 0 auto;
-  width: 60%;
+  width: 65%;
+  font-family: "Sora", sans-serif;
 }
 
 
@@ -58,8 +68,14 @@ h5 {
     padding-top: 50px;
   }
 
+
+  #main-hero-text {
+    /* font-size: 38px; */
+  }
+
   h1 {
     font-size: 36px;
+    line-height: 1.1;
   }
 
   h2 {
@@ -85,8 +101,13 @@ h5 {
     padding-top: 70px;
   }
 
+  #main-hero-text {
+    /* font-size: 52px; */
+  }
+
   h1 {
     font-size: 48px;
+    line-height: 1.1;
   }
 
   h2 {
@@ -112,8 +133,13 @@ h5 {
     padding-top: 100px;
   }
 
+  #main-hero-text {
+    /* font-size: 65px; */
+  }
+
   h1 {
     font-size: 60px;
+    line-height: 1.1;
   }
 
   h2 {
@@ -142,6 +168,7 @@ h5 {
 
   h1 {
     font-size: 80px;
+    line-height: 1.1;
   }
 
   h2 {
@@ -159,6 +186,13 @@ h5 {
   h5 {
     font-size: 28px;
   }
+}
+
+@font-face {
+  font-family: 'Departure Mono';
+  src: url('./fonts/DepartureMono-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 
@@ -350,6 +384,7 @@ body {
 .digital-services-section h1 {
   margin: 0;
   padding-bottom: 2.5rem;
+  text-transform: lowercase;
 }
 
 @media (max-width: 768px) {
@@ -561,6 +596,10 @@ body {
 }
 
 /** SERVICES LIST **/
+
+#services-intro {
+  font-family: "Sora", sans-serif;
+}
 
 .services-list-container {
   padding-top: 100px;
@@ -910,6 +949,7 @@ body {
             font-size: 2rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
+            text-transform: lowercase;
         }
 
         .expanded-description {

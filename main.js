@@ -71,10 +71,10 @@ function createCloseIcon() {
       </svg>
   `;
 }
-
 function createCard(feature, index) {
   const card = document.createElement('div');
-  card.className = 'card';
+  card.className = 'card clickable-card'; // Add a class for styling the clickable card
+
   card.innerHTML = `
       <div class="card-icon">
           <div class="card-icon-wrapper">
@@ -109,13 +109,24 @@ function createCard(feature, index) {
   const expandedView = card.querySelector('.expanded');
   const stickyNavWrapper = document.querySelector('.digital-sticky-nav-wrapper'); // Grab the sticky nav element
 
-  expandButton.addEventListener('click', () => {
+  // Handle card click
+  card.addEventListener('click', () => {
       expandedView.classList.add('active');
       document.body.style.overflow = 'hidden';  // Disable body scroll
       stickyNavWrapper.style.display = 'none'; // Hide sticky nav
   });
 
-  closeButton.addEventListener('click', () => {
+  // Handle expand button click
+  expandButton.addEventListener('click', (event) => {
+      event.stopPropagation();  // Prevent propagation to card click
+      expandedView.classList.add('active');
+      document.body.style.overflow = 'hidden';  // Disable body scroll
+      stickyNavWrapper.style.display = 'none'; // Hide sticky nav
+  });
+
+  // Handle close button click
+  closeButton.addEventListener('click', (event) => {
+      event.stopPropagation();  // Prevent propagation to card click
       expandedView.classList.remove('active');
       document.body.style.overflow = '';  // Re-enable body scroll
       stickyNavWrapper.style.display = 'flex'; // Show sticky nav
@@ -130,6 +141,3 @@ const container = document.getElementById('cardContainer');
 features.forEach((feature, index) => {
   container.appendChild(createCard(feature, index));
 });
-
-
-

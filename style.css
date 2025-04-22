@@ -52,6 +52,10 @@ h5 {
   font-family: "Sora", sans-serif;
 }
 
+.contact-sub-header {
+  font-family: "Sora", sans-serif;
+}
+
 
 @media (max-width: 768px) {
   #partners-sub-header {
@@ -472,14 +476,15 @@ body {
 .qxCTlb {
   font-family: "lores-12", sans-serif !important;
   text-transform: uppercase;
-  font-weight: 500 !important;
-  border-radius: 12px;
-  background-color: var(--primary-bg-color) !important;
-  opacity: 0.6;
+  font-weight: 100 !important;
+  border-radius: 12px !important;
+  background-color: #29384b !important;
+  /* opacity: 0.6; */
   margin-bottom: 50px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
+  padding: 12px 16px !important;
 }
 
 .qxCTlb:hover {
@@ -496,7 +501,7 @@ body {
   height: 10px;
   border-radius: 50%;
   background-color: #3cf47f;
-  margin-right: 0.5rem;
+  margin-right: 1rem;
   box-shadow: 0 0 0 0 rgba(60, 244, 127, 0.7);
   animation: pulse-dot 1.5s infinite;
 }

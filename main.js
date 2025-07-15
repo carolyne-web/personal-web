@@ -11,7 +11,7 @@ const features = [
   {
     title: "Design & Development",
     description: `"send me your location"<br>
-gone are the days when having a website was just a nice-to-have. you need a digital "location" to reach a broader audience and stay competitive. in this digital age, if you're not online—do you even exist?<br><br>
+gone are the days when having a website was just a nice-to-have. you need a digital "location" to reach a broader audience and stay competitive. in this digital age, if you're not online - do you even exist?<br><br>
 <span class="expanded-service-item">website design & development</span>
 <span class="expanded-service-item">e-commerce solutions</span>
 <span class="expanded-service-item">ui/ux design</span>
@@ -24,7 +24,7 @@ gone are the days when having a website was just a nice-to-have. you need a digi
     description: `"loyalty, not traffic"<br>
     to reach a wider audience in this vast and dynamic digital world, a one-size-fits-all approach doesn’t work.
     we combine data-driven insights with creative, human-centered approaches,
-    tailored to your unique needs. at the core of our strategy is community— through authentic communication
+    tailored to your unique needs. at the core of our strategy is community — through authentic communication
     that connects with your audiences and nurtures lasting loyalty.<br><br>
 <span class="expanded-service-item">Search Engine Optimization (SEO)</span>
 <span class="expanded-service-item">SEO Audits & Strategy</span>

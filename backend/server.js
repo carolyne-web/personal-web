@@ -39,7 +39,7 @@ app.post('/api/contact', async (req, res) => {
 
   try {
     // Send email to carolyne@kuwonastudios.com
-    await resend.emails.send({
+    const notificationResult = await resend.emails.send({
       from: 'Kuwona <onboarding@resend.dev>', // Use resend.dev for testing, or your verified domain
       replyTo: email,
       to: 'carolyne@kuwonastudios.com',
@@ -56,9 +56,10 @@ app.post('/api/contact', async (req, res) => {
         <p><small>Submitted on ${new Date().toLocaleString()}</small></p>
       `
     });
+    console.log('Notification email sent:', notificationResult);
 
     // Send auto-reply to the sender
-    await resend.emails.send({
+    const autoReplyResult = await resend.emails.send({
       from: 'Kuwona <onboarding@resend.dev>',
       to: email,
       subject: 'Thank you for contacting Kuwona',
@@ -73,6 +74,7 @@ app.post('/api/contact', async (req, res) => {
         Founders, <a href="https://digital.kuwonastudios.com">Kuwona</a></p>
       `
     });
+    console.log('Auto-reply email sent to:', email, autoReplyResult);
 
     res.status(200).json({
       success: true,

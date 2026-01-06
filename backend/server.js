@@ -45,11 +45,11 @@ app.post('/api/contact', async (req, res) => {
     });
   }
 
-  // Email content to send to info@kuwonastudios.com
+  // Email content to send to carolyne@kuwonastudios.com
   const mailOptions = {
     from: process.env.GMAIL_USER,
-    to: 'info@kuwonastudios.com',
-    subject: `New Contact Form Submission from ${name}`,
+    to: 'carolyne@kuwonastudios.com',
+    subject: `New Contact Form Submission from ${name} | Kuwona Digital`,
     html: `
       <h2>New Contact Form Submission</h2>
       <p><strong>Name:</strong> ${name}</p>
@@ -81,16 +81,16 @@ Submitted on ${new Date().toLocaleString()}
   const autoReplyOptions = {
     from: process.env.GMAIL_USER,
     to: email,
-    subject: 'Thank you for contacting Kuwona Digital',
+    subject: 'Thank you for contacting Kuwona',
     html: `
-      <h2>Thank you for reaching out!</h2>
+      <p>Thank you for reaching out!</p>
+      <br>
       <p>Hi ${name},</p>
       <p>We've received your message and will get back to you as soon as possible.</p>
-      <p>In the meantime, feel free to explore our services at <a href="https://kuwonastudios.com">kuwonastudios.com</a></p>
       <br>
-      <p>Best regards,<br>The Kuwona Digital Team</p>
-      <hr>
-      <p><small>This is an automated response. Please do not reply to this email.</small></p>
+      <p>Many thanks,<br>
+      Michael and Carolyne<br>
+      Founders, <a href="https://digital.kuwonastudios.com">Kuwona</a></p>
     `,
     text: `
 Thank you for reaching out!
@@ -99,13 +99,10 @@ Hi ${name},
 
 We've received your message and will get back to you as soon as possible.
 
-In the meantime, feel free to explore our services at kuwonastudios.com
-
-Best regards,
-The Kuwona Digital Team
-
----
-This is an automated response. Please do not reply to this email.
+Many thanks,
+Michael and Carolyne
+Founders, Kuwona
+https://digital.kuwonastudios.com
     `
   };
 

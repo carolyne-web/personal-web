@@ -141,3 +141,102 @@ const container = document.getElementById('cardContainer');
 features.forEach((feature, index) => {
   container.appendChild(createCard(feature, index));
 });
+
+// Set current year dynamically
+document.getElementById('current-year').textContent = new Date().getFullYear();
+
+// Contact form modal handling
+const contactBtn = document.getElementById('contact-btn');
+const contactModal = document.getElementById('contact-modal');
+const closeModal = document.querySelector('.close-modal');
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+const stickyNavWrapper = document.querySelector('.digital-sticky-nav-wrapper');
+
+// Open modal
+contactBtn.addEventListener('click', () => {
+  contactModal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (stickyNavWrapper) {
+    stickyNavWrapper.style.display = 'none';
+  }
+});
+
+// Close modal when clicking X
+closeModal.addEventListener('click', () => {
+  contactModal.classList.remove('active');
+  document.body.style.overflow = '';
+  if (stickyNavWrapper) {
+    stickyNavWrapper.style.display = 'flex';
+  }
+});
+
+// Close modal when clicking outside
+contactModal.addEventListener('click', (e) => {
+  if (e.target === contactModal) {
+    contactModal.classList.remove('active');
+    document.body.style.overflow = '';
+    if (stickyNavWrapper) {
+      stickyNavWrapper.style.display = 'flex';
+    }
+  }
+});
+
+// Handle form submission
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const submitBtn = contactForm.querySelector('.submit-btn');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Sending...';
+
+  // Hide any previous status messages
+  formStatus.className = 'form-status';
+  formStatus.style.display = 'none';
+
+  // Get form data
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    company: document.getElementById('company').value,
+    description: document.getElementById('description').value
+  };
+
+  try {
+    // TODO: Replace with your actual backend URL once deployed to Render
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      formStatus.textContent = 'Message sent successfully! We\'ll get back to you soon.';
+      formStatus.className = 'form-status success';
+      contactForm.reset();
+
+      // Close modal after 2 seconds
+      setTimeout(() => {
+        contactModal.classList.remove('active');
+        document.body.style.overflow = '';
+        if (stickyNavWrapper) {
+          stickyNavWrapper.style.display = 'flex';
+        }
+        formStatus.style.display = 'none';
+      }, 2000);
+    } else {
+      throw new Error(data.message || 'Failed to send message');
+    }
+  } catch (error) {
+    formStatus.textContent = error.message || 'Something went wrong. Please try again.';
+    formStatus.className = 'form-status error';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Send Message';
+  }
+});

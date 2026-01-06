@@ -103,16 +103,16 @@
             <a href="https://cabalbikes.com" target="_blank">
               <img src="/assets/images/cabal-bikes-logo.png" alt="Cabal Bikes Logo" class="logo">
             </a>
-            <a href="https://sanic.co.za" target="_blank">
+            <a href="https://sanicclean.co.za/" target="_blank">
               <img src="/assets/images/sanic-logo.png" alt="Sanic Logo" class="logo">
             </a>
-            <a href="https://carbonwizard.com" target="_blank">
+            <a href="https://www.carbon-wizard.com/" target="_blank">
               <img src="/assets/images/carbon-wizard-logo.png" alt="Carbon Wizard Logo" class="logo">
             </a>
-            <a href="https://oeuvre.com" target="_blank">
+            <a href="https://oeuvreart.com/" target="_blank">
               <img src="/assets/images/oeuvre-logo.png" alt="Ouevre Logo" class="logo">
             </a>
-            <a href="https://mzansibooks.com" target="_blank">
+            <a href="https://www.mzansibooks.co.za/" target="_blank">
               <img src="/assets/images/mzansi-books-logo.png" alt="Mzansi Books Logo" class="logo">
             </a>
             <a href="https://thedigitalcollar.com" target="_blank">
@@ -121,6 +121,7 @@
             <a href="https://www.4iiii.co.za/" target="_blank">
               <img src="/assets/images/4iiiiZA logo.png" alt="4iiiiZA Logo" class="logo">
             </a>
+
           </div>
       </div>
       </div>
@@ -134,29 +135,40 @@
               let's break bread
             </h2>
             <div class="booking-btn">
-            <!-- Google Calendar Appointment Scheduling begin -->
-              <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-              <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-              <script>
-              (function() {
-                var target = document.currentScript;
-                window.addEventListener('load', function() {
-                  calendar.schedulingButton.load({
-                    url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ33GQGLCRfWhWTP_jny7UVZ8V01vw1UAuzn0nNfUMgY1S6jtbICePzHax_HRUPF08efWfnHgFzl?gv=true',
-                    color: '#039BE5',
-                    label: 'book a consultation',
-                    target,
-                  });
-                });
-              })();
-              </script>
-              <!-- end Google Calendar Appointment Scheduling -->
+              <button id="contact-btn" class="contact-button">get in touch</button>
+            </div>
+
+            <!-- Contact Form Modal -->
+            <div id="contact-modal" class="contact-modal">
+              <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Get in Touch</h2>
+                <form id="contact-form" class="contact-form">
+                  <div class="form-group">
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number (Optional)">
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="company" name="company" placeholder="Company/Business Name (Optional)">
+                  </div>
+                  <div class="form-group">
+                    <textarea id="description" name="description" placeholder="Quick description of what service you'd like" rows="5" required></textarea>
+                  </div>
+                  <button type="submit" class="submit-btn">Send Message</button>
+                  <div id="form-status" class="form-status"></div>
+                </form>
+              </div>
             </div>
             <h3>
               ENQUIRIES
             </h3>
             <p class="footer-email">
-              <a href="mailto:info@kuwonastudios.com">info@kuwonastudios.com</a>
+              <a href="mailto:info@kuwonastudios.com">office@kuwonastudios.com</a>
           </p>
           </div>
           <div class="digital-footer">
@@ -164,7 +176,7 @@
               CAPE TOWN, SOUTH AFRICA
             </p>
             <p>
-              KUWONA DIGITAL © 2025
+              KUWONA © <span id="current-year"></span>
             </p>
         </div>
         </div>

@@ -1054,3 +1054,193 @@ body {
 .booking-btn {
   margin-top: 7vh !important;
 }
+
+/* Contact Button */
+.contact-button {
+  font-family: "lores-12", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 12px;
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.contact-button:hover {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+  opacity: 1;
+}
+
+/* Contact Modal */
+.contact-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(22, 44, 70, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow-y: auto;
+}
+
+.contact-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--accent-color);
+  border-radius: 20px;
+  padding: 3rem;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: opacity 0.3s;
+  background: none;
+  border: none;
+  line-height: 1;
+}
+
+.close-modal:hover {
+  opacity: 0.7;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 2rem;
+  text-transform: lowercase;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.875rem;
+  border-radius: 8px;
+  border: 1px solid rgba(242, 251, 251, 0.2);
+  background-color: rgba(22, 44, 70, 0.3);
+  color: var(--text-color);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(242, 251, 251, 0.5);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--text-color);
+  background-color: rgba(22, 44, 70, 0.5);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  font-family: "lores-12", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.submit-btn:hover {
+  background-color: var(--text-color);
+  color: var(--accent-color);
+}
+
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.875rem;
+  display: none;
+}
+
+.form-status.success {
+  display: block;
+  background-color: rgba(60, 244, 127, 0.2);
+  color: #3cf47f;
+  border: 1px solid #3cf47f;
+}
+
+.form-status.error {
+  display: block;
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border: 1px solid #f44336;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .modal-content h2 {
+    font-size: 1.5rem;
+  }
+}

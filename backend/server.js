@@ -10,17 +10,14 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Create email transporter using Gmail SMTP with explicit configuration
+// Create email transporter using Google Workspace SMTP
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, // use TLS
+  port: 465,
+  secure: true, // use SSL
   auth: {
-    user: process.env.GMAIL_USER,
+    user: process.env.GMAIL_USER, // contact@kuwonastudios.com
     pass: process.env.GMAIL_APP_PASSWORD
-  },
-  tls: {
-    rejectUnauthorized: false
   }
 });
 
@@ -52,7 +49,8 @@ app.post('/api/contact', async (req, res) => {
 
   // Email content to send to carolyne@kuwonastudios.com
   const mailOptions = {
-    from: process.env.GMAIL_USER,
+    from: `"Kuwona Studios" <${process.env.GMAIL_USER}>`, // Always use your Google Workspace email
+    replyTo: email, // User's email for easy replies
     to: 'carolyne@kuwonastudios.com',
     subject: `New Contact Form Submission from ${name} | Kuwona Digital`,
     html: `
@@ -84,7 +82,7 @@ Submitted on ${new Date().toLocaleString()}
 
   // Auto-reply to the sender
   const autoReplyOptions = {
-    from: process.env.GMAIL_USER,
+    from: `"Kuwona Studios" <${process.env.GMAIL_USER}>`,
     to: email,
     subject: 'Thank you for contacting Kuwona',
     html: `

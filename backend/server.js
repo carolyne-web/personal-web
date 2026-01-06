@@ -1,5 +1,5 @@
 const express = require('express');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const cors = require('cors');
 require('dotenv').config();
 
@@ -10,25 +10,15 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Create email transporter using Google Workspace SMTP
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true, // use SSL
-  auth: {
-    user: process.env.GMAIL_USER, // contact@kuwonastudios.com
-    pass: process.env.GMAIL_APP_PASSWORD
-  }
-});
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Verify transporter configuration
-transporter.verify((error, success) => {
-  if (error) {
-    console.error('Email transporter error:', error);
-  } else {
-    console.log('Email server is ready to send messages');
-  }
-});
+// Verify Resend is configured
+if (!process.env.RESEND_API_KEY) {
+  console.error('RESEND_API_KEY is not set');
+} else {
+  console.log('Resend email service is ready');
+}
 
 // Health check endpoint
 app.get('/', (req, res) => {
@@ -47,74 +37,42 @@ app.post('/api/contact', async (req, res) => {
     });
   }
 
-  // Email content to send to carolyne@kuwonastudios.com
-  const mailOptions = {
-    from: `"Kuwona Studios" <${process.env.GMAIL_USER}>`, // Always use your Google Workspace email
-    replyTo: email, // User's email for easy replies
-    to: 'carolyne@kuwonastudios.com',
-    subject: `New Contact Form Submission from ${name} | Kuwona Digital`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
-      ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
-      <p><strong>Message:</strong></p>
-      <p>${description.replace(/\n/g, '<br>')}</p>
-      <hr>
-      <p><small>Submitted on ${new Date().toLocaleString()}</small></p>
-    `,
-    // Plain text version
-    text: `
-New Contact Form Submission
-
-Name: ${name}
-Email: ${email}
-${phone ? `Phone: ${phone}` : ''}
-${company ? `Company: ${company}` : ''}
-
-Message:
-${description}
-
-Submitted on ${new Date().toLocaleString()}
-    `
-  };
-
-  // Auto-reply to the sender
-  const autoReplyOptions = {
-    from: `"Kuwona Studios" <${process.env.GMAIL_USER}>`,
-    to: email,
-    subject: 'Thank you for contacting Kuwona',
-    html: `
-      <p>Thank you for reaching out!</p>
-      <br>
-      <p>Hi ${name},</p>
-      <p>We've received your message and will get back to you as soon as possible.</p>
-      <br>
-      <p>Many thanks,<br>
-      Michael and Carolyne<br>
-      Founders, <a href="https://digital.kuwonastudios.com">Kuwona</a></p>
-    `,
-    text: `
-Thank you for reaching out!
-
-Hi ${name},
-
-We've received your message and will get back to you as soon as possible.
-
-Many thanks,
-Michael and Carolyne
-Founders, Kuwona
-https://digital.kuwonastudios.com
-    `
-  };
-
   try {
-    // Send email to info@kuwonastudios.com
-    await transporter.sendMail(mailOptions);
+    // Send email to carolyne@kuwonastudios.com
+    await resend.emails.send({
+      from: 'Kuwona <onboarding@resend.dev>', // Use resend.dev for testing, or your verified domain
+      replyTo: email,
+      to: 'carolyne@kuwonastudios.com',
+      subject: `New Contact Form Submission from ${name} | Kuwona Digital`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
+        ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+        <p><strong>Message:</strong></p>
+        <p>${description.replace(/\n/g, '<br>')}</p>
+        <hr>
+        <p><small>Submitted on ${new Date().toLocaleString()}</small></p>
+      `
+    });
 
     // Send auto-reply to the sender
-    await transporter.sendMail(autoReplyOptions);
+    await resend.emails.send({
+      from: 'Kuwona <onboarding@resend.dev>',
+      to: email,
+      subject: 'Thank you for contacting Kuwona',
+      html: `
+        <p>Thank you for reaching out!</p>
+        <br>
+        <p>Hi ${name},</p>
+        <p>We've received your message and will get back to you as soon as possible.</p>
+        <br>
+        <p>Many thanks,<br>
+        Michael and Carolyne<br>
+        Founders, <a href="https://digital.kuwonastudios.com">Kuwona</a></p>
+      `
+    });
 
     res.status(200).json({
       success: true,

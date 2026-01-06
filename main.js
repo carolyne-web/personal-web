@@ -204,8 +204,7 @@ contactForm.addEventListener('submit', async (e) => {
   };
 
   try {
-    // TODO: Replace with your actual backend URL once deployed to Render
-    const response = await fetch('http://localhost:3000/api/contact', {
+    const response = await fetch('https://kuwona-digital-contact-api.onrender.com/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

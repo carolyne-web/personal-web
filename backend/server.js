@@ -60,18 +60,18 @@ app.post('/api/contact', async (req, res) => {
 
     // Send auto-reply to the sender
     const autoReplyResult = await resend.emails.send({
-      from: 'Kuwona <onboarding@resend.dev>',
+      from: 'Kuwona Digital <onboarding@resend.dev>',
       to: email,
-      subject: 'Thank you for contacting Kuwona',
+      subject: 'Thank you for contacting Kuwona Digital, a division of Kuwona',
       html: `
+        <p>Hi ${name},</p>
         <p>Thank you for reaching out!</p>
         <br>
-        <p>Hi ${name},</p>
         <p>We've received your message and will get back to you as soon as possible.</p>
         <br>
         <p>Many thanks,<br>
         Michael and Carolyne<br>
-        Founders, <a href="https://digital.kuwonastudios.com">Kuwona</a></p>
+        Founders, <a href="https://www.kuwonastudios.com">Kuwona</a></p>
       `
     });
     console.log('Auto-reply email sent to:', email, autoReplyResult);
